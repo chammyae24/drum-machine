@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background: #626970;
+  font-family: "Gluten", cursive;
+}
+body {
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  font-size: 3rem;
+  margin-top: 1rem;
+  color: white;
+  text-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
+}
+.over-all {
+  display: grid;
+  grid-template-areas:
+    "seq seq vol"
+    "seq seq vol"
+    "tempo tempo vol";
+  margin: 5rem;
+  width: 80rem;
+  background: #2f2f4d;
+  outline: 5px solid #e8d18e;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
+}
+.sequencer {
+  grid-area: seq;
+  width: 70rem;
+  margin: 0.5rem;
+  margin-bottom: 0;
+}
+.tempo {
+  grid-area: tempo;
+  margin: 0.5rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tempo-slider {
+  width: 70%;
+  cursor: pointer;
+}
+.tempo p {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  color: white;
+}
+.volume {
+  grid-area: vol;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* margin: 0.5rem; */
+  width: 5rem;
+}
+.volume-slider {
+  /* -webkit-appearance: none;
+  -moz-appearance: none; */
+  -webkit-appearance: slide-vertical;
+  -moz-appearance: slide-vertical;
+  background: transparent;
+  width: 20rem;
+  height: 0.5rem;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform-origin: top;
+  position: relative;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.volume p {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  color: white;
+  position: relative;
+  top: 10rem;
+  left: 0.5rem;
+}
+.volume #volume-select {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: black;
+  position: relative;
+  top: 10rem;
+  left: 0.5rem;
+  padding: 0.5rem;
+}
+.controls {
+  display: grid;
+  grid-template-areas:
+    "del h1 h1"
+    "mute select select";
+  padding: 0.5rem;
+  width: 13rem;
+}
+.controls .delete {
+  grid-area: del;
+  font-size: 1rem;
+  background: #2f2f4d;
+  color: white;
+}
+.controls .mute {
+  grid-area: mute;
+  padding: 0.5rem;
+  background: #2f2f4d;
+  color: white;
+}
+.controls h1 {
+  grid-area: h1;
+  font-size: 1.4rem;
+  margin: 0.5rem;
+  color: white;
+}
+.controls select {
+  grid-area: select;
+  border: none;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.controls button {
+  border: none;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+i,
+svg {
+  pointer-events: none;
+}
+.kick-track,
+.snare-track,
+.hihat-track,
+.crash-track {
+  display: flex;
+}
+.kick-seq,
+.snare-seq,
+.hihat-seq,
+.crash-seq {
+  display: flex;
+  padding: 0.5rem;
+}
+.pad {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: white;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  margin-top: 3.7rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.play {
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.kick-pad.active {
+  background: hsl(84, 90%, 73%);
+  background-image: -moz-linear-gradient(
+    45deg,
+    hsl(84, 90%, 73%) 25%,
+    rgba(255, 255, 255, 60) 100%
+  );
+  box-shadow: 1px 1px 15px hsl(84, 90%, 73%);
+}
+.snare-pad.active {
+  /* background: hsl(300, 100%, 70%); */
+  background-image: -moz-linear-gradient(
+    45deg,
+    hsl(300, 100%, 70%) 25%,
+    rgba(255, 255, 255, 60) 100%
+  );
+  background-image: -webkit-linear-gradient(
+    45deg,
+    hsl(300, 100%, 70%) 25%,
+    rgba(255, 255, 255, 60) 100%
+  );
+  background-image: linear-gradient(
+    45deg,
+    hsl(300, 100%, 70%) 25%,
+    rgba(255, 255, 255, 60) 100%
+  );
+  box-shadow: 1px 1px 20px hsl(300, 100%, 70%);
+}
+.hihat-pad.active {
+  background: hsl(180, 100%, 60%);
+  background-image: -moz-linear-gradient(
+    45deg,
+    hsl(180, 100%, 60%) 25%,
+    rgba(255, 255, 255, 60) 100%
+  );
+  background-image: -webkit-linear-gradient(
+    45deg,
+    hsl(180, 100%, 60%) 25%,
+    rgba(255, 255, 255, 60) 100%
+  );
+  background-image: linear-gradient(
+    45deg,
+    hsl(180, 100%, 60%) 25%,
+    rgba(255, 255, 255, 60) 100%
+  );
+  box-shadow: 1px 1px 15px hsl(180, 100%, 60%);
+}
+.crash-pad.active {
+  background: #f72199;
+  background-image: -moz-linear-gradient(
+    45deg,
+    #f72199 25%,
+    rgba(255, 255, 255, 60) 100%
+  );
+  background-image: -webkit-linear-gradient(
+    45deg,
+    #f72199 25%,
+    rgba(255, 255, 255, 60) 100%
+  );
+  background-image: linear-gradient(
+    45deg,
+    #f72199 25%,
+    rgba(255, 255, 255, 60) 100%
+  );
+  box-shadow: 1px 1px 15px #f72199;
+}
+@keyframes playTrack {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
