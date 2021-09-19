@@ -242,3 +242,8 @@ svg {
     transform: scale(1.2);
   }
 }
+@media all and (max-width: 1290px) {
+  body {
+    display: inline-block;
+  }
+}
